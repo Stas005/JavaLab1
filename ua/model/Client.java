@@ -6,26 +6,25 @@ import ua.util.UserUtils;
 import java.util.Objects;
 
 public class Client extends User{
-    private String level;
+    private Level level;
     private Coach coach;
     
     public Client() {
         super();
     }
     
-    public Client(String firstName, String lastName, String email, String level, Coach coach) {
+    public Client(String firstName, String lastName, String email, Level level, Coach coach) {
         super(firstName, lastName, email);
-        SetLevel(level);
+        setLevel(level);
         setCoach(coach);
     }
     
-    public String getLevel() {
+    public Level getLevel() {
         return level;
     }
     
-    public void SetLevel(String level) {
-        if (ClientUtils.isValidLevel(level)) 
-            this.level = level;
+    public void setLevel(Level level) {
+        this.level = level;
     }
     
     public Coach getCoach() {
@@ -36,10 +35,19 @@ public class Client extends User{
         this.coach = coach;
     }
     
-    public static Client createClient(String firstName, String lastName, String level, Coach coach) {
-        if (ClientUtils.isValidLevel(level) && UserUtils.isValidName(firstName) && UserUtils.isValidName(lastName)) {
+    public static Client createClient(String firstName, String lastName, Level level, Coach coach) {
+        if (level != null && UserUtils.isValidName(firstName) && UserUtils.isValidName(lastName)) {
             String email = UserUtils.generateEmailFromNames(firstName, lastName);
             return new Client(firstName, lastName, email, level, coach);
+        }
+        return null;
+    }
+
+    public static Client createClient(String firstName, String lastName, String levelString, Coach coach) {
+        Level parsed = ClientUtils.parseLevel(levelString);
+        if (parsed != null && UserUtils.isValidName(firstName) && UserUtils.isValidName(lastName)) {
+            String email = UserUtils.generateEmailFromNames(firstName, lastName);
+            return new Client(firstName, lastName, email, parsed, coach);
         }
         return null;
     }

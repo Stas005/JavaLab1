@@ -28,7 +28,7 @@ public class Main {
         client1.setFirstName("Alice");
         client1.setLastName("Johnson");
         client1.setEmail("clientmail@gmail.com");
-        client1.SetLevel("Intermediate");
+        client1.setLevel(Level.INTERMEDIATE);
         client1.setCoach(coach1);
         System.out.println("Client First Name: " + client1.getFirstName());
         System.out.println("Client Last Name: " + client1.getLastName());
@@ -37,7 +37,7 @@ public class Main {
         System.out.println("Client Level: " + client1.getLevel());
         System.out.println("Client's Coach: " + (client1.getCoach() != null ? client1.getCoach().getFullName() : "No Coach"));
         
-        Client client2 = Client.createClient("Bob", "Brown", "Beginner", coach2);
+        Client client2 = Client.createClient("Bob", "Brown", Level.BEGINNER, coach2);
         System.out.println("Created Client: " + client2);
 
 
@@ -55,13 +55,10 @@ public class Main {
         System.out.println("Created Progress: " + progress2);
 
 
-        Exercise exercise1 = new Exercise();
-        exercise1.setName("Push-ups");
-        exercise1.setReps(15);
-        exercise1.setSets(3);
-        System.out.println("Exercise Name: " + exercise1.getName());
-        System.out.println("Exercise Reps: " + exercise1.getReps());
-        System.out.println("Exercise Sets: " + exercise1.getSets());
+        Exercise exercise1 = new Exercise("Push-ups", 15, 3);
+        System.out.println("Exercise Name: " + exercise1.name());
+        System.out.println("Exercise Reps: " + exercise1.reps());
+        System.out.println("Exercise Sets: " + exercise1.sets());
         Exercise exercise2 = Exercise.createExercise("Squats", 20, 4);
         System.out.println("Created Exercise: " + exercise2);
         Exercise exercise3 = Exercise.createExercise("Plank", 1, 3);
@@ -70,17 +67,12 @@ public class Main {
         List<Exercise> exercises = List.of(exercise1, exercise2, exercise3);
         
         
-        Workout workout1 = new Workout();
-        workout1.setTitle("Morning Cardio");
-        workout1.setDurationMinutes(30);
-        workout1.setIntensity("Medium");
-        workout1.addExercise(exercise1);
-        workout1.addExercise(exercise2);
-        System.out.println("Workout Title: " + workout1.getTitle());
-        System.out.println("Workout Duration: " + workout1.getDurationMinutes() + " minutes");
-        System.out.println("Workout Intensity: " + workout1.getIntensity());
-        System.out.println("Workout Exercises: " + workout1.getExercises());
-        Workout workout2 = Workout.createWorkout("Evening Strength", 45, "High", exercises);
+        Workout workout1 = new Workout("Morning Cardio", 30, Intensity.MEDIUM, List.of(exercise1, exercise2));
+        System.out.println("Workout Title: " + workout1.title());
+        System.out.println("Workout Duration: " + workout1.durationMinutes() + " minutes");
+        System.out.println("Workout Intensity: " + workout1.intensity());
+        System.out.println("Workout Exercises: " + workout1.exercises());
+        Workout workout2 = Workout.createWorkout("Evening Strength", 45, Intensity.HIGH, exercises);
         System.out.println("Created Workout: " + workout2);
         
         List<Workout> workouts = List.of(workout1, workout2);

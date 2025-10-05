@@ -1,7 +1,19 @@
 package ua.util;
 
+import ua.model.Level;
+
 public class ClientUtils {
     public static boolean isValidLevel(String level) {
-        return ValidationHelper.isStringLengthBetween(level, 1, 20);
+        return parseLevel(level) != null;
+    }
+
+    public static Level parseLevel(String value) {
+        if (value == null) return null;
+        return switch (value.trim().toLowerCase()) {
+            case "beginner", "beg" -> Level.BEGINNER;
+            case "intermediate", "inter" -> Level.INTERMEDIATE;
+            case "advanced", "adv" -> Level.ADVANCED;
+            default -> null;
+        };
     }
 }
