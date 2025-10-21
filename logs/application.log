@@ -1,0 +1,38 @@
+Oct 14, 2025 9:43:16 PM Main main
+INFO: Starting application - CSV Data Import Demo
+Oct 14, 2025 9:43:16 PM Main importUsersFromCSV
+INFO: Starting import of users from: data/users.csv
+Oct 14, 2025 9:43:16 PM Main importUsersFromCSV
+INFO: Successfully imported 5 users from CSV
+Oct 14, 2025 9:43:16 PM Main importCoachesFromCSV
+INFO: Starting import of coaches from: data/coaches.csv
+Oct 14, 2025 9:43:16 PM Main importCoachesFromCSV
+INFO: Successfully imported 5 coaches from CSV
+Oct 14, 2025 9:43:16 PM Main importLevelsFromCSV
+INFO: Starting import of levels from: data/levels.csv
+Oct 14, 2025 9:43:16 PM Main importLevelsFromCSV
+INFO: Successfully imported 3 levels from CSV
+Oct 14, 2025 9:43:16 PM Main importIntensitiesFromCSV
+INFO: Starting import of intensities from: data/intensities.csv
+Oct 14, 2025 9:43:16 PM Main importIntensitiesFromCSV
+INFO: Successfully imported 3 intensities from CSV
+Oct 14, 2025 9:43:16 PM Main importExercisesFromCSV
+INFO: Starting import of exercises from: data/exercises.csv
+Oct 14, 2025 9:43:16 PM Main importExercisesFromCSV
+INFO: Successfully imported 10 exercises from CSV
+Oct 14, 2025 9:43:16 PM Main displayImportedData
+INFO: Displaying imported data summary
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+INFO: Demonstrating object creation with error handling
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+INFO: Successfully created client: Alice Johnson
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+INFO: Successfully demonstrated InvalidDataException: Failed to create exercise with invalid data
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+INFO: Demonstrated multi-catch exception handling: NullPointerException
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+WARNING: IO error occurred: nonexistent.txt
+Oct 14, 2025 9:43:16 PM Main demonstrateObjectCreation
+INFO: Finally block executed
+Oct 14, 2025 9:43:16 PM Main main
+INFO: Application completed successfully
